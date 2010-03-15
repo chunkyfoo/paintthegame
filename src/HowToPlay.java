@@ -34,7 +34,7 @@ public class HowToPlay extends Applet
 	public void update(Graphics g) //method that actually draws
 	{
 		g = getGraphics();
-		//g.drawImage(instructions, 0,0, 600,402,this);
+		g.drawImage(instructions, 0,0, 600,402,this);//draws the how to play image
 		
 		repaint();
 		
