@@ -1,7 +1,5 @@
 /*
  * Kevin Voellmer
- * HIHIHIIII THIS IS A TESTTT DELETE THIS AFTERWARDS
- * WHAT THE CRAP ITS NOT SAVING...1?!?
  * LevelObject is the superclass for Coin, Path, Stickman, and Abstract Obstacles (Spikedwall, Doctor, Wall).
  */
 public class LevelObject {
