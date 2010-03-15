@@ -10,8 +10,13 @@ public class LevelObject {
 	Image img;
 	
 	public LevelObject(){
-		
 	}//end default constructor
+	
+	public LevelObject(int x, int y, Image img){
+		this.x = x;
+		this.y = y;
+		this.img = img;
+	}//end constructor
 	
 	public void draw(Graphics2D g2){//default draw method, will be overiden by StickMan and path
 		
