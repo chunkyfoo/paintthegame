@@ -11,14 +11,20 @@ public class HowToPlay extends Applet
 	 * @param args
 	 */
 	Image instructions;
+	JPanel main = new JPanel();
 	JPanel p = new JPanel();//drawing panel
+	JPanel buttonPanel = new JPanel();//drawing panel
 	JButton button=new JButton();
 
 	public void init() //initializes components of the applet
 	{
 		instructions = getImage(getCodeBase(), "Instructions.png");
 		button.setText("Go Back to Main Screen");
-		add(button);
+		
+		main.add(p);
+		buttonPanel.add(button);
+		main.add(buttonPanel);
+		//add(button);
 		setSize(600, 602);
 
 	}
@@ -34,7 +40,7 @@ public class HowToPlay extends Applet
 	public void update(Graphics g) //method that actually draws
 	{
 		g = getGraphics();
-		g.drawImage(instructions, 0,0, 600,402,this);//draws the how to play image
+		g.drawImage(instructions, 0,0, 600,402,p);//draws the how to play image
 		
 		repaint();
 		
