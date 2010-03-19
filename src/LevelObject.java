@@ -9,7 +9,10 @@ public class LevelObject {
 	int x,y;
 	Image img;
 	
-	public LevelObject(){
+	public LevelObject(Image img){
+		x = -1000;
+		y = -1000;
+		this.img = img;
 	}//end default constructor
 	
 	public LevelObject(int x, int y, Image img){
