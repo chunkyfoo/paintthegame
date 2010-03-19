@@ -1,25 +1,17 @@
-import java.awt.Graphics2D;
-import java.awt.Image;
-
 /*
  * Kevin Voellmer
  * LevelObject is the superclass for Coin, Path, Stickman, and Abstract Obstacles (Spikedwall, Doctor, Wall).
  */
 public class LevelObject {
 	int x,y;
-	Image img;
+	image img;
 	
 	public LevelObject(Image img){
 		x = -1000;
 		y = -1000;
 		this.img = img;
+		
 	}//end default constructor
-	
-	public LevelObject(int x, int y, Image img){
-		this.x = x;
-		this.y = y;
-		this.img = img;
-	}//end constructor
 	
 	public void draw(Graphics2D g2){//default draw method, will be overiden by StickMan and path
 		
