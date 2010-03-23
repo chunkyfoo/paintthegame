@@ -29,17 +29,20 @@ public class HowToPlay extends Applet
 		button.setText("Go Back to Main Screen");
 		
 		//main.add(p);
-		add(p);
-		p.add(button);
+		//add(p);
+		//p.add(button);
 		repaint();
 		//buttonPanel.add(button);
 		//main.add(buttonPanel);
 		//add(button);
 		MouseClick click = new MouseClick();
-		addMouseListener(click);
+		p.addMouseListener(click);
 		setSize(600, 602);
-		setCursor(curr);
-		p.setCursor(curr);
+		p.setSize(600,600);
+		p.setLocation(4000, 4000);
+		add(p);
+		//setCursor(curr);
+		//p.setCursor(curr);
 
 	}
 	public void paint(Graphics g)//method that draws to the screen 
@@ -57,59 +60,34 @@ public class HowToPlay extends Applet
 		public void mouseEntered(MouseEvent e)//if the user releases the mouse
 
 		{
-			//get their current position
-			x = e.getX();
 
-			y = e.getY();
-			x = e.getX();
-
-			y = e.getY();
-			if ((x>400) && (x < 600) && (y>500)&&(y<600))
-			{
+			
 				p.setCursor(curr);
-				System.out.println("ENTERD!");
-			}
-				
+				System.out.println("ENTERD AREA!");
+				repaint();
+			
 
 
 			repaint();
 
 			repaint();
 
-		}//end mouseUp method
+		}//end mouseEntered method
+		public void mouseExit(MouseEvent e)
+		{
+			setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+		}
 
 	}//end MouseClick class
 
-	public class MouseDrag extends MouseMotionAdapter//handles what happens when the user drags mouse
-
-	{
-
-		public void mouseClick(MouseEvent e)//method that determines what happens when mouse is dragged
-
-		{
-			
-			x = e.getX();
-
-			y = e.getY();
-			if ((x>400) && (x < 600) && (y>500)&&(y<600))
-			{
-				p.setCursor(curr);
-				System.out.println("ENTERD!");
-			}
-				
-
-
-			repaint();
-
-		}//end mouseDragged method
-
-	}//end MouseDrag class
 
 	public void update(Graphics g) //method that actually draws
 	{
 		g = getGraphics();
 		g.drawImage(instructions, 0,0, 600,402,main);//draws the how to play image
-		
+		Graphics pg=p.getGraphics();
+		pg.fillRect(0, 0, 200, 200);
+		//add(button);
 		
 		repaint();
 		
