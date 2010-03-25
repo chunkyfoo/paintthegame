@@ -25,5 +25,4 @@ public class Coin extends LevelObject{
 	public void increment(long total, long pass) {//this method is not used, only here because it is in the abstract superclass
 	}//end increment
 	
-
 }//end class
