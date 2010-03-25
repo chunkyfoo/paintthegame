@@ -5,7 +5,15 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.LineBorder;
+import javax.swing.border.MatteBorder;
+import javax.swing.border.SoftBevelBorder;
+import javax.swing.border.TitledBorder;
 
 public class HowToPlay extends Applet
 {
@@ -25,9 +33,9 @@ public class HowToPlay extends Applet
 
 	public void init() //initializes components of the applet
 	{
-		instructions = getImage(getCodeBase(), "Instructions.png");
+		 instructions = getImage(getCodeBase(), "Instructions.png");
 		button.setText("Go Back to Main Screen");
-		
+		//System.out.println("AHHHHHHHHH!");
 		//main.add(p);
 		//add(p);
 		//p.add(button);
@@ -37,10 +45,16 @@ public class HowToPlay extends Applet
 		//add(button);
 		MouseClick click = new MouseClick();
 		p.addMouseListener(click);
-		setSize(600, 602);
-		p.setSize(600,600);
-		p.setLocation(4000, 4000);
+		setSize(600, 402);
 		add(p);
+		p.setLocation(500, 10);
+		p.setPreferredSize(new Dimension(200,100));
+		p.setBackground(Color.WHITE);
+	   
+		//p.setSize(800,800);
+		p.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED));
+	//	p.setLocation(4000, 4000);
+		
 		//setCursor(curr);
 		//p.setCursor(curr);
 
@@ -86,8 +100,9 @@ public class HowToPlay extends Applet
 		g = getGraphics();
 		g.drawImage(instructions, 0,0, 600,402,main);//draws the how to play image
 		Graphics pg=p.getGraphics();
-		pg.fillRect(0, 0, 200, 200);
-		//add(button);
+		pg.setColor(Color.WHITE);
+		pg.fillRect(0, 0, 250, 250);
+	    add(button);
 		
 		repaint();
 		
