@@ -1,5 +1,4 @@
 import java.awt.Graphics2D;
-import java.awt.image.ImageObserver;
 import javax.swing.ImageIcon;
 
 /*
@@ -18,7 +17,12 @@ public class Coin extends LevelObject{
 
 	@Override
 	public void draw(Graphics2D g2) {
+		if(!(oldx==x) || !(oldy==y))
 		g2.drawImage(img, x, y, null);
+		else{
+			oldy=y;
+			oldx=x;
+		}//end else
 	}//end draw
 
 	@Override
