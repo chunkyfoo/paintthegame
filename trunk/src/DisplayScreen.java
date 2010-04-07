@@ -44,7 +44,7 @@ public class DisplayScreen extends JPanel implements Runnable{
 		//System.out.println(this.getWidth());
 	}
 
-	@Override
+	
 	public void run() {
 		this.setVisible(true);
 		start = System.currentTimeMillis();
