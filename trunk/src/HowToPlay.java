@@ -21,6 +21,7 @@ public class HowToPlay extends Applet
 	/**
 	 * @param args
 	 */
+	Boolean close=false;
 	int x;
 	int y;
 	Image instructions;
@@ -34,29 +35,19 @@ public class HowToPlay extends Applet
 	public void init() //initializes components of the applet
 	{
 		 instructions = getImage(getCodeBase(), "Instructions.png");
-		button.setText("Go Back to Main Screen");
-		//System.out.println("AHHHHHHHHH!");
-		//main.add(p);
-		//add(p);
-		//p.add(button);
+
 		repaint();
-		//buttonPanel.add(button);
-		//main.add(buttonPanel);
-		//add(button);
+		
 		MouseClick click = new MouseClick();
 		p.addMouseListener(click);
-		setSize(600, 402);
+		setSize(600, 502);
 		add(p);
 		p.setLocation(500, 10);
-		p.setPreferredSize(new Dimension(200,100));
+		p.setPreferredSize(new Dimension(200,50));
 		p.setBackground(Color.WHITE);
-	   
-		//p.setSize(800,800);
+
 		p.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED));
-	//	p.setLocation(4000, 4000);
-		
-		//setCursor(curr);
-		//p.setCursor(curr);
+
 
 	}
 	public void paint(Graphics g)//method that draws to the screen 
@@ -70,14 +61,26 @@ public class HowToPlay extends Applet
 	public class MouseClick extends MouseAdapter//handles what happens when the user releases mouse
 
 	{
+		public void mouseClicked(MouseEvent e)
+		{	
+			x=e.getX();
+			y=e.getY();
 
+		//	if(x>0)
+				System.out.println("OUTTTTTT!");
+				close=true;
+
+			
+
+
+		}
 		public void mouseEntered(MouseEvent e)//if the user releases the mouse
 
 		{
 
 			
 				p.setCursor(curr);
-				System.out.println("ENTERD AREA!");
+				System.out.println("ENTERED AREA!");
 				repaint();
 			
 
@@ -98,11 +101,12 @@ public class HowToPlay extends Applet
 	public void update(Graphics g) //method that actually draws
 	{
 		g = getGraphics();
-		g.drawImage(instructions, 0,0, 600,402,main);//draws the how to play image
+		g.drawImage(instructions, 0,50, 600,402,main);//draws the how to play image
 		Graphics pg=p.getGraphics();
 		pg.setColor(Color.WHITE);
 		pg.fillRect(0, 0, 250, 250);
-	    add(button);
+		pg.setColor(Color.BLACK);
+		pg.drawString("CLOSE THIS", 50, 20);
 		
 		repaint();
 		
