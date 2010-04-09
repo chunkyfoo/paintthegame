@@ -35,20 +35,25 @@ import javax.swing.border.TitledBorder;
 
 		public  HowToPlayV2() //initializes components of the applet
 		{
-			Container content = this.getContentPane();
-
-			setTitle("TESTING");
-
+		//	 instructions = getImage(getCodeBase(), "Instructions.png");
+			button.setText("Go Back to Main Screen");
+			
+			//main.add(p);
 			//add(p);
-			content.add(main);
+			//p.add(button);
+	//		repaint();
+			System.out.println("WHY WONT SIZE WORK");
+			//buttonPanel.add(button);
+			//main.add(buttonPanel);
+			//add(button);
 			MouseClick click = new MouseClick();
 			p.addMouseListener(click);
-			this.setSize(900, 902);
-			content.setLayout(new BorderLayout());
-			main.add(p);
-			//add(main,BorderLayout.SOUTH);
-			//add(p,BorderLayout.NORTH);
-			//p.setLocation(20,400);
+			setSize(900, 902);
+			setLayout(new BorderLayout());
+			//main.add(p);
+			add(main,BorderLayout.SOUTH);
+			add(p,BorderLayout.NORTH);
+			p.setLocation(20,400);
 			p.setPreferredSize(new Dimension(600,402));
 			
 		//	p.setSize(800,800);
@@ -57,8 +62,6 @@ import javax.swing.border.TitledBorder;
 			
 			//setCursor(curr);
 			//p.setCursor(curr);
-			 this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		        this.pack();   // does layout of components.
 
 		}
 		public void paint(Graphics g)//method that draws to the screen 
@@ -74,30 +77,17 @@ import javax.swing.border.TitledBorder;
 		//	update(g);//call the update method
 
 		}//end paint method
-
 		public class MouseClick extends MouseAdapter//handles what happens when the user releases mouse
 
 		{
-			public void mouseClicked(MouseEvent e)
-			{	
-				x=e.getX();
-				y=e.getY();
 
-			//	if(x>0)
-					System.out.println("OUTTTTTT!");
-					System.exit(0);
-				
-
-
-			}
-
-					public void mouseEntered(MouseEvent e)//if the user releases the mouse
+			public void mouseEntered(MouseEvent e)//if the user releases the mouse
 
 			{
 
 				
 					p.setCursor(curr);
-					System.out.println("ENTERED AREA!");
+					System.out.println("ENTERD AREA!");
 					repaint();
 				
 
@@ -117,7 +107,6 @@ import javax.swing.border.TitledBorder;
 
 		public void update(Graphics g) //method that actually draws
 		{
-			
 			Graphics m = main.getGraphics();
 			m.drawImage(instructions, 0,0, 600,402,main);//draws the how to play image
 			Graphics pg=p.getGraphics();
