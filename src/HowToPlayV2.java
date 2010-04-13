@@ -34,53 +34,35 @@ import java.applet.AudioClip;
 
 		public  HowToPlayV2() //initializes components of the applet
 		{
-<<<<<<< .mine
+
 			 instructions = Toolkit.getDefaultToolkit().getImage("Instructions.png");
 			Container content = this.getContentPane();
 
-			setTitle("TESTING");
+			setTitle("How To Play");
 			main.add(p);
-		main.setBackground(Color.white);
+			main.setBackground(Color.white);
 			this.pack();
-=======
-		//	 instructions = getImage(getCodeBase(), "Instructions.png");
-			button.setText("Go Back to Main Screen");
-			
-			//main.add(p);
-			//add(p);
->>>>>>> .r81
-			//p.add(button);
-	//		repaint();
-			System.out.println("WHY WONT SIZE WORK");
-			//buttonPanel.add(button);
-			//main.add(buttonPanel);
-			//add(button);
+
 			MouseClick click = new MouseClick();
 			p.addMouseListener(click);
-<<<<<<< .mine
+
 			repaint();
 			setSize(600, 502);
 			clip=getAudioClip("doh.wav");
 	   	
 			p.setPreferredSize(new Dimension(200,50));
-=======
-			setSize(900, 902);
+
 			setLayout(new BorderLayout());
-			//main.add(p);
-			add(main,BorderLayout.SOUTH);
-			add(p,BorderLayout.NORTH);
-			p.setLocation(20,400);
-			p.setPreferredSize(new Dimension(600,402));
->>>>>>> .r81
+			add(main);
+
 			
 
 			p.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED));
 			content.repaint();
 
-<<<<<<< .mine
+
 			 this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-=======
->>>>>>> .r81
+
 
 		}
 		public void paint(Graphics g)//method that draws to the screen 
@@ -93,27 +75,19 @@ import java.applet.AudioClip;
 		public class MouseClick extends MouseAdapter//handles what happens when the user releases mouse
 
 		{
-<<<<<<< .mine
+
 			public void mouseClicked(MouseEvent e)
 			{	
-=======
->>>>>>> .r81
 
-<<<<<<< .mine
 					System.out.println("OUTTTTTT!");
 					setVisible(false);
 					repaint();				
-=======
-			public void mouseEntered(MouseEvent e)//if the user releases the mouse
->>>>>>> .r81
 
-<<<<<<< .mine
 			}
 
 					public void mouseEntered(MouseEvent e)//if the user releases the mouse
 
-=======
->>>>>>> .r81
+
 			{
 				
 					p.setCursor(curr);
@@ -136,14 +110,12 @@ import java.applet.AudioClip;
 
 		public void update(Graphics g) //method that actually draws
 		{
-<<<<<<< .mine
+
 			repaint();
-			g = getGraphics();
-			g.drawImage(instructions, 0,65, 600,402,main);//draws the how to play image
-=======
+
 			Graphics m = main.getGraphics();
-			m.drawImage(instructions, 0,0, 600,402,main);//draws the how to play image
->>>>>>> .r81
+			m.drawImage(instructions, 0,65, 600,402,main);//draws the how to play image
+
 			Graphics pg=p.getGraphics();
 			pg.setColor(Color.WHITE);
 			pg.fillRect(0, 0, 250, 250);
