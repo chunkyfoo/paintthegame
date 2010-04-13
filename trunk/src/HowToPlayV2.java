@@ -119,7 +119,7 @@ import java.applet.AudioClip;
 			Graphics pg=p.getGraphics();
 			pg.setColor(Color.WHITE);
 			pg.fillRect(0, 0, 250, 250);
-			pg.setColor(Color.BLACK);
+			pg.setColor(Color.RED);
 			pg.drawString("CLOSE THIS", 50, 20);
 			
 			repaint();					
