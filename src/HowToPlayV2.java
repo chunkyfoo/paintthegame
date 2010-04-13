@@ -18,7 +18,7 @@
 import javax.swing.border.TitledBorder;
 import java.applet.AudioClip;
 
-	public class HowToPlayV2 extends JFrame
+	public class HowToPlayV2 extends JFrame//JFrame version of HowToPlay class
 	{
 		/**
 		 * @param args
@@ -41,7 +41,7 @@ import java.applet.AudioClip;
 			setTitle("How To Play");
 			main.add(p);
 			main.setBackground(Color.white);
-			this.pack();
+			this.pack();//refreshes the main component panel
 
 			MouseClick click = new MouseClick();
 			p.addMouseListener(click);
@@ -80,7 +80,7 @@ import java.applet.AudioClip;
 			{	
 
 					System.out.println("OUTTTTTT!");
-					setVisible(false);
+					setVisible(false);//minimize
 					repaint();				
 
 			}
