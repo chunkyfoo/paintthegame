@@ -2,7 +2,6 @@ import java.awt.Graphics2D;
 
 import javax.swing.ImageIcon;
 
-
 public class Wall extends LevelObject{
 	
 	public Wall(){
