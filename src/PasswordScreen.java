@@ -14,11 +14,14 @@ import java.io.FileNotFoundException;
 	import java.awt.*;
 	import java.net.*;
 import javax.swing.*;
-public class PasswordScreen extends JFrame
+public class PasswordScreen extends JFrame implements ActionListener
 {
 	JPanel main = new JPanel();
 	JTextField pass=new JTextField(15);
 	JButton enter=new JButton("Go!");
+	Boolean match=false;
+	int levelForPass=2;
+	Boolean wrongPass=false;
 	public PasswordScreen()
 	{
 		Container content = this.getContentPane();
@@ -35,16 +38,37 @@ public class PasswordScreen extends JFrame
 		
 		main.add(pass);
 			main.add(new JLabel(" "));
-			enter.setToolTipText("Make sure your case is correct!");
-			enter.addActionListener((ActionListener) this);
+
 		enter.setBackground(Color.BLACK);
 		main.add(enter);
-		
+		enter.addActionListener(this);
 		System.out.println(getComponentZOrder(pass));
 		add(main);
 		 this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		 this.setResizable(false);
+		 
+	
 	}
+	public void actionPerformed(ActionEvent evt)
+	{
+
+		try {
+			
+			passwordMatch();
+		}
+		catch (IOException e) 
+		{
+			e.printStackTrace();
+		}
+		if (match==true)
+		{
+			pass.setVisible(false);
+			enter.setVisible(false);
+		}
+		repaint();
+		
+	}
+	
 	public void paint(Graphics g)//method that draws to the screen 
 	{
 		super.paint(g);
@@ -55,7 +79,9 @@ public class PasswordScreen extends JFrame
 	public void passwordMatch() throws IOException
 	{
 		String correctPass;
-		int levelForPass=1;
+		match=false;
+		wrongPass=false;
+		levelForPass=2;
 		String enteredPass;
 		BufferedReader in =
 			new BufferedReader(new InputStreamReader(System.in));
@@ -65,18 +91,33 @@ public class PasswordScreen extends JFrame
 			// FileReader
 			Scanner src =
 			new Scanner(textfile);// create object src in class
+			enteredPass=pass.getText();
+			System.out.println(enteredPass);
 			do
 			{
 				correctPass=src.nextLine();
-				System.out.println(correctPass);
-				enteredPass=enter.getText();
 				if (enteredPass.equals(correctPass))
 				{
-					
+					System.out.println("TRUE! Real pass was "+correctPass+" and you entered "+enteredPass);
+					match=true;	
+					break;
 				}
+				else
+					levelForPass++;
 				
 			}
 			while (src.hasNextLine());
+			if(match==false)
+			{
+				System.out.println("FALSE! Real pass was "+correctPass+" and you entered "+enteredPass);
+				levelForPass=2;
+				wrongPass=true;
+			}
+			else
+			{
+				System.out.println("You can now access level " +levelForPass);
+			
+			}
 
 
 	}
@@ -87,7 +128,24 @@ public class PasswordScreen extends JFrame
 
 		Graphics m = main.getGraphics();
 		m.setColor(Color.WHITE);
+		if((match==false)&&(wrongPass==false))
 		m.drawString("Please Enter Your Password to Access this Level:",160,180);
+		else if ((match==false)&&(wrongPass==true))
+		{
+			m.setColor(Color.BLACK);
+			m.fillRect(50, 100, 450, 100);
+			m.setColor(Color.WHITE);
+			m.drawString("Wrong password, please enter the right one, dumbass", 120, 180);
+		}
+			
+		else
+		{
+			m.setColor(Color.BLACK);
+			m.fillRect(50, 100, 500, 400);
+			m.setColor(Color.WHITE);
+			m.drawString("Now Loading Level... "+levelForPass, 160, 180);
+		}
+			
 
 	
 		
