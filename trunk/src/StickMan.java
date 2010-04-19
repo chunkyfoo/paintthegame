@@ -1,11 +1,11 @@
 import java.awt.Graphics2D;
-
 import javax.swing.ImageIcon;
 
 /*
  * Kevin Voellmer
  * This is the main character, his movement will be controlled by the player
  */
+
 public class StickMan extends LevelObject{
 	public StickMan(){
 		super(new ImageIcon("Instructions.png").getImage());
