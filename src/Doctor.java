@@ -12,11 +12,6 @@ public class Doctor extends LevelObject{
 	}//end default constructor
 	
 	@Override
-	public void draw(Graphics2D g2) {
-		g2.drawImage(img, x, y, null);
-	}//end draw
-
-	@Override
 	public void increment(long total, long pass) {
 		// TODO Auto-generated method stub
 		
