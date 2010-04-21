@@ -6,6 +6,7 @@ import java.awt.image.ImageObserver;
  * Kevin Voellmer
  * LevelObject is the superclass for Coin, Path, Stickman, and Abstract Obstacles (Spikedwall, Doctor, Wall).
  */
+
 public abstract class LevelObject implements Drawable, incrementable{
 	int x,y;
 	Image img;
