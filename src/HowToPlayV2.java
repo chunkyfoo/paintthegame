@@ -79,7 +79,7 @@ import java.applet.AudioClip;
 			public void mouseClicked(MouseEvent e)
 			{	
 
-					System.out.println("OUTTTTTT!");
+					//System.out.println("OUTTTTTT!");
 					setVisible(false);//minimize
 					repaint();				
 
@@ -91,7 +91,7 @@ import java.applet.AudioClip;
 			{
 				
 					p.setCursor(curr);
-					System.out.println("ENTERD AREA!");
+					//System.out.println("ENTERD AREA!");
 					repaint();
 					clip.play();
 
@@ -134,7 +134,7 @@ import java.applet.AudioClip;
 				//address = new URL("file:" + System.getProperty("user.dir") + "\\" + fileName);//change this to your own directory
 			} catch (MalformedURLException mfurle) {
 				System.err.println("Couldn't make URL: " + mfurle);
-				System.out.println("HAHALOSER YOU FAIL");
+				//System.out.println("HAHALOSER YOU FAIL");
 			}
 			
 			return Applet.newAudioClip(address);
