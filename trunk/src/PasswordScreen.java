@@ -107,7 +107,7 @@ public class PasswordScreen extends JFrame implements ActionListener
 		public void mouseClicked(MouseEvent e)
 		{	
 
-				System.out.println("OUTTTTTT!");//TESTING FLAG
+				//System.out.println("OUTTTTTT!");//TESTING FLAG
 				setVisible(false);//minimize
 				repaint();				
 
@@ -119,7 +119,7 @@ public class PasswordScreen extends JFrame implements ActionListener
 		{
 			
 				p.setCursor(curr);
-				System.out.println("ENTERD AREA!");
+				//System.out.println("ENTERD AREA!");
 				repaint();
 				clip.play();
 
@@ -150,13 +150,13 @@ public class PasswordScreen extends JFrame implements ActionListener
 			Scanner src =
 			new Scanner(textfile);// create object src in class
 			enteredPass=pass.getText();
-			System.out.println(enteredPass);
+			//System.out.println(enteredPass);
 			do
 			{
 				correctPass=src.nextLine();
 				if (enteredPass.equals(correctPass))
 				{
-					System.out.println("TRUE! Real pass was "+correctPass+" and you entered "+enteredPass);
+					//System.out.println("TRUE! Real pass was "+correctPass+" and you entered "+enteredPass);
 					match=true;	
 					break;
 				}
@@ -167,13 +167,14 @@ public class PasswordScreen extends JFrame implements ActionListener
 			while (src.hasNextLine());
 			if(match==false)
 			{
-				System.out.println("FALSE! Real pass was "+correctPass+" and you entered "+enteredPass);
+				//System.out.println("FALSE! Real pass was "+correctPass+" and you entered "+enteredPass);
+				pass.setText("");
 				levelForPass=2;
 				wrongPass=true;
 			}
 			else
 			{
-				System.out.println("You can now access level " +levelForPass);
+				//System.out.println("You can now access level " +levelForPass);
 			
 			}
 
@@ -234,7 +235,6 @@ public class PasswordScreen extends JFrame implements ActionListener
 			//address = new URL("file:" + System.getProperty("user.dir") + "\\" + fileName);//change this to your own directory
 		} catch (MalformedURLException mfurle) {
 			System.err.println("Couldn't make URL: " + mfurle);
-			System.out.println("HAHALOSER YOU FAIL");
 		}
 		
 		return Applet.newAudioClip(address);
