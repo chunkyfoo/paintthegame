@@ -8,7 +8,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 
-public class FireBall extends LevelObject{
+public class FireBall extends LevelObject implements Drawable,incrementable{
 	int x;
 	int y;
 	int radius;
@@ -18,7 +18,7 @@ public class FireBall extends LevelObject{
 	
 	
 	public FireBall(int x, int y, int radius, int size, Color color) {
-		super();
+		super(null);
 		this.x = x;
 		this.y = y;
 		this.radius = radius;
