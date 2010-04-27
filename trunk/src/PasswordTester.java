@@ -8,7 +8,7 @@ public class PasswordTester {
 	 */
 	public static void main(String[] args) {
 		JFrame window=new PasswordScreen();
-		window.setVisible(true);
+		window.setVisible(true);//display the actual window, set to false in actual program
 		// TODO Auto-generated method stub
 
 	}
