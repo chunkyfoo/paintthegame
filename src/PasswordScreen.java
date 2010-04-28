@@ -66,7 +66,7 @@ public class PasswordScreen extends JFrame implements ActionListener
 		main.add(p);
 		enter.addActionListener(this);
 		add(main);
-		 this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		 this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		 this.setResizable(false);
 		 
 	
