@@ -61,7 +61,7 @@ import java.applet.AudioClip;
 			content.repaint();
 
 
-			 this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			 this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 
 
 		}
