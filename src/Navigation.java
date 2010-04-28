@@ -30,6 +30,7 @@ public class Navigation extends JApplet{
 	JButton jbtHowToPlay = new JButton("Instructions");
 	JButton jbtMainMenu = new JButton("Quit to Main Menu");
 	Thread game;
+	JFrame window=new HowToPlayV2();
 	public Navigation (){
 		super();
 	}
@@ -53,6 +54,16 @@ public class Navigation extends JApplet{
 					pause();
 					jtgbtPause.setText("Press to Resume");
 				}
+			}
+		});
+		jbtHowToPlay.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				howToPlay();
+			}
+		});
+		jbtMainMenu.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				mainMenu();
 			}
 		});
 		JPanel southPanel = new JPanel();
@@ -79,7 +90,16 @@ public class Navigation extends JApplet{
 		
 	}
 	
+	public void howToPlay(){
+		window.setVisible(true);
+	}
+	
 	public void showHighScores(){
+		
+	}
+	
+	public void mainMenu() {
+		// TODO Auto-generated method stub
 		
 	}
 	
