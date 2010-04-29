@@ -17,26 +17,31 @@ import javax.swing.JFrame;
 
 public class HighScore
 {
-	public int level;
 
 	public static void main(String[]args)
 	{
-		new HighScore(2, "3/2/10", "Caitlin Tjandra", 1);
-	}
+		//HighScore ch=new HighScore();
+		//ch.showScores(1);
+		new HighScore(2, "3/2/10", "Caitlin Tjandra");
+	}//end main
 
-	public HighScore(int scoreNew, String dateNew, String nameNew, int levelNew)
+	public HighScore()
+	{
+		
+	}//end HighScore
+	
+	public HighScore(int scoreNew, String dateNew, String nameNew)
 	{
 		Score tryScore=new Score(scoreNew, dateNew, nameNew);
-		level=levelNew;
 		compareScore(tryScore);
-		showScores(1);
+		showScores();
 	}//end HighScore
 
 	//compares score to previous high scores
 	public void compareScore(Score tryScore)
 	{
 		ArrayList<Score> scores=new ArrayList<Score>();
-		scores=readScores(level);
+		scores=readScores();
 		int hold=10;
 		//finds if score is greater than any past high scores
 		for(int x=0; x<scores.size(); x++)
@@ -80,11 +85,9 @@ public class HighScore
 		}//end catch
 	}//end compareScore
 
-	public ArrayList<Score> readScores(int level)
+	public ArrayList<Score> readScores()
 	{
 		ArrayList<Score> scores=new ArrayList<Score>();
-		if(level==1)
-		{
 			try
 			{
 				//reads in high scores from file
@@ -103,17 +106,16 @@ public class HighScore
 			{
 				System.out.println("No File Found");
 			}//end catch
-		}
 		return scores;
 	}//end readScores
 	
-	public void showScores(int level)
+	public void showScores()
 	{
-		ArrayList<Score> scores=readScores(level);
+		ArrayList<Score> scores=readScores();
 		ScoreGUI shower= new ScoreGUI();
 		shower.passIn(scores);
 		shower.setVisible(true);
-	}
+	}//end showScore
 	
 	private class ScoreGUI extends JFrame
 	{
@@ -123,12 +125,12 @@ public class HighScore
 		{
 			super("High Scores");
 			setSize(400,480);
-		}
+		}//end scoreGUI
 		
 		public void passIn(ArrayList<Score> scores1)
 		{
 			scores=scores1;
-		}
+		}//end passIn
 		
 		
 		public void paint(Graphics g)
@@ -147,8 +149,7 @@ public class HighScore
 				g.drawString((scores.get(x-1)).getName(), 50, 40+40*x);
 				g.drawString(scorer, 200, 40+40*x);
 				g.drawString((scores.get(x-1)).getDate(), 300, 40+40*x);
-			}
-		}
-		
-	}
+			}//end for
+		}//end paint	
+	}//end ScoreGUI
 }//end HighScore
