@@ -5,6 +5,7 @@ import javax.swing.ImageIcon;
 public class Wall extends LevelObject{
 	
 	public Wall(){
+		//super(new ImageIcon(getClass().getResource("i-beam_Painting.jpg")).getImage());
 		super(new ImageIcon("i-beam_Painting.jpg").getImage());
 	}//end default constructor
 	
