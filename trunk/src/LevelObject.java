@@ -15,16 +15,16 @@ public abstract class LevelObject implements Drawable, incrementable{
 	public LevelObject(Image img){
 		x = -1000;
 		y = -1000;
-		oldy=-1000;
-		oldx=-1000;
+		oldy=-1001;
+		oldx=-1001;
 		this.img = img;
 	}//end default constructor
 
 	public LevelObject(int x, int y, Image img){
 		this.x = x;
 		this.y = y;
-		oldy=y;
-		oldx=x;
+		oldy=y+1;
+		oldx=x+1;
 		this.img = img;
 	}//end default constructor
 
