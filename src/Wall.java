@@ -5,11 +5,11 @@ import javax.swing.ImageIcon;
 public class Wall extends LevelObject{
 	
 	public Wall(){
-		super(new ImageIcon("Instructions.png").getImage());
+		super(new ImageIcon("i-beam_Painting.jpg").getImage());
 	}//end default constructor
 	
 	public Wall(int x, int y){
-		super(x, y, new ImageIcon("Instructions.png").getImage());
+		super(x, y, new ImageIcon("i-beam_Painting.jpg").getImage());
 	}//end default constructor
 	
 	@Override
