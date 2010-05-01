@@ -43,7 +43,7 @@ public class Navigation extends JApplet{
 	}
 
 	private ImageIcon[] loadBackgrounds() {
-		File folder = new File("music/");
+		File folder = new File("src/background/");
 		File[] listOfFiles = folder.listFiles();
 		int files = 0;
 		for (int i = 0; i < listOfFiles.length; i++) {
@@ -54,10 +54,12 @@ public class Navigation extends JApplet{
 				System.out.println("Directory " + listOfFiles[i].getName());
 			}
 		}
+		System.out.println("size=" + files + " , "+listOfFiles.length);
 		ImageIcon[] backgrounds = new ImageIcon[files];
+		int b=-1;
 		for (int i = 0; i < listOfFiles.length; i++) {
 			if (listOfFiles[i].isFile()) {
-				backgrounds[i] = new ImageIcon(getClass().getResource(listOfFiles[i].getPath()));
+				backgrounds[++b] = new ImageIcon(getClass().getResource("background/" + listOfFiles[i].getName()));
 
 			}
 		}
@@ -66,7 +68,7 @@ public class Navigation extends JApplet{
 	}
 
 	private AudioClip[] loadAudioClips() {
-		File folder = new File("music/");
+		File folder = new File("src/music/");
 		File[] listOfFiles = folder.listFiles();
 		int files = 0;
 		for (int i = 0; i < listOfFiles.length; i++) {
@@ -78,10 +80,14 @@ public class Navigation extends JApplet{
 			}
 		}
 		AudioClip[] clips = new AudioClip[files];
+		int b=-1;
 		for (int i = 0; i < listOfFiles.length; i++) {
 			if (listOfFiles[i].isFile()) {
-				clips[i] = Applet.newAudioClip(getClass().getResource(listOfFiles[i].getPath()));
-
+				//System.out.println(getClass().getResource("music/" + listOfFiles[i].getName()));
+				System.out.println(listOfFiles[i].getAbsolutePath());
+				System.out.println(this.getClass().getResource("music/allianc1.mid"));
+				//clips[i] = Applet.newAudioClip(getClass().getResource("music/" + listOfFiles[i].getName()));
+				clips[++b] = Applet.newAudioClip(getClass().getResource("music/" + listOfFiles[i].getName()));
 			}
 		}
 
@@ -141,6 +147,8 @@ public class Navigation extends JApplet{
 		game.start();
 		this.repaint();
 		this.validateTree();
+		audioClips[0].loop();
+	
 		//displayScreen.run();
 	}
 
@@ -187,7 +195,7 @@ public class Navigation extends JApplet{
 		//gameFrame.setVisible(true);
 		try{
 			RemoveMaxAndMinButton frame = new RemoveMaxAndMinButton(new JFrame(),
-					"Paint The Game!");
+			"Paint The Game!");
 			frame.setResizable(false);
 			//JPanel panel = new JPanel();
 			//panel.setSize(200,200);
