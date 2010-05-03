@@ -46,7 +46,7 @@ import java.applet.AudioClip;
 			MouseClick click = new MouseClick();
 			p.addMouseListener(click);
 
-			repaint();
+			//repaint();
 			setSize(600, 502);
 			clip=getAudioClip("doh.wav");
 	   	
@@ -58,7 +58,7 @@ import java.applet.AudioClip;
 			
 
 			p.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED));
-			content.repaint();
+			//content.repaint();
 
 
 			 this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
@@ -81,7 +81,7 @@ import java.applet.AudioClip;
 
 					//System.out.println("OUTTTTTT!");
 					setVisible(false);//minimize
-					repaint();				
+					//repaint();				
 
 			}
 
@@ -92,12 +92,11 @@ import java.applet.AudioClip;
 				
 					p.setCursor(curr);
 					//System.out.println("ENTERD AREA!");
-					repaint();
+					//repaint();
 					clip.play();
 
-				repaint();
 
-				repaint();
+				//repaint();
 
 			}//end mouseEntered method
 			public void mouseExit(MouseEvent e)
@@ -111,7 +110,7 @@ import java.applet.AudioClip;
 		public void update(Graphics g) //method that actually draws
 		{
 
-			repaint();
+			//repaint();
 
 			Graphics m = main.getGraphics();
 			m.drawImage(instructions, 0,65, 600,402,main);//draws the how to play image
