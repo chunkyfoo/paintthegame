@@ -35,63 +35,12 @@ public class Navigation extends JApplet{
 	JButton jbtMainMenu = new JButton("Quit to Main Menu");
 	JButton jbtMedia = new JButton("Music and Background");
 	Thread game;
-	JFrame window=new HowToPlayV2();
-	AudioClip[] audioClips = loadAudioClips();
-	ImageIcon[] icons = loadBackgrounds();
+	JFrame window = new HowToPlayV2();
+	OptionMenu optionMenu = new OptionMenu(this);
+	boolean music = false;
+	boolean background = false;
 	public Navigation (){
 		super();
-	}
-
-	private ImageIcon[] loadBackgrounds() {
-		File folder = new File("src/background/");
-		File[] listOfFiles = folder.listFiles();
-		int files = 0;
-		for (int i = 0; i < listOfFiles.length; i++) {
-			if (listOfFiles[i].isFile()) {
-				System.out.println("File " + listOfFiles[i].getName());
-				files++;
-			} else if (listOfFiles[i].isDirectory()) {
-				System.out.println("Directory " + listOfFiles[i].getName());
-			}
-		}
-		System.out.println("size=" + files + " , "+listOfFiles.length);
-		ImageIcon[] backgrounds = new ImageIcon[files];
-		int b=-1;
-		for (int i = 0; i < listOfFiles.length; i++) {
-			if (listOfFiles[i].isFile()) {
-				backgrounds[++b] = new ImageIcon(getClass().getResource("background/" + listOfFiles[i].getName()));
-
-			}
-		}
-
-		return backgrounds;
-	}
-
-	private AudioClip[] loadAudioClips() {
-		File folder = new File("src/music/");
-		File[] listOfFiles = folder.listFiles();
-		int files = 0;
-		for (int i = 0; i < listOfFiles.length; i++) {
-			if (listOfFiles[i].isFile()) {
-				System.out.println("File " + listOfFiles[i].getName());
-				files++;
-			} else if (listOfFiles[i].isDirectory()) {
-				System.out.println("Directory " + listOfFiles[i].getName());
-			}
-		}
-		AudioClip[] clips = new AudioClip[files];
-		int b=-1;
-		for (int i = 0; i < listOfFiles.length; i++) {
-			if (listOfFiles[i].isFile()) {
-				//System.out.println(getClass().getResource("music/" + listOfFiles[i].getName()));
-				System.out.println(listOfFiles[i].getAbsolutePath());
-				System.out.println(this.getClass().getResource("music/allianc1.mid"));
-				//clips[i] = Applet.newAudioClip(getClass().getResource("music/" + listOfFiles[i].getName()));
-				clips[++b] = Applet.newAudioClip(getClass().getResource("music/" + listOfFiles[i].getName()));
-			}
-		}
-
-		return clips;
 	}
 
 	public void init() {
@@ -147,7 +96,7 @@ public class Navigation extends JApplet{
 		game.start();
 		this.repaint();
 		this.validateTree();
-		audioClips[0].loop();
+		//audioClips[0].loop();
 	
 		//displayScreen.run();
 	}
@@ -167,12 +116,12 @@ public class Navigation extends JApplet{
 	}
 
 	public void mainMenu() {
-		// TODO Auto-generated method stub
+		
 
 	}
 
 	public void showMedia(){
-
+		optionMenu.setVisible(true);
 	}
 
 	public void pause(){
