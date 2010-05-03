@@ -4,11 +4,11 @@ import javax.swing.ImageIcon;
 public class Door extends LevelObject{
 
 	public Door(){
-		super(new ImageIcon("door.jpg").getImage());
+		super(new ImageIcon("door.png").getImage());
 	}//end default constructor
 	
 	public Door(int x, int y){
-		super(x, y, new ImageIcon("door.jpg").getImage());
+		super(x, y, new ImageIcon("door.png").getImage());
 	}//end constructor
 
 	@Override
