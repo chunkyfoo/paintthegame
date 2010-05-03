@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.OutputStream;
 import java.util.Iterator;
 
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 
@@ -26,6 +27,9 @@ public class DisplayScreen extends JPanel implements Runnable{
 	String sPass = "";
 	public boolean notQuit = true;
 	public boolean pause = false;
+	boolean backgroundOn = false;
+	ImageIcon background = null;
+	
 	public DisplayScreen(){
 		level = new Level(new File("testLevel"));
 	}
@@ -39,6 +43,8 @@ public class DisplayScreen extends JPanel implements Runnable{
 		Iterator<LevelObject> levelIterator = level.levelObjects.iterator();
 		frames++;
 		Graphics2D g2 = (Graphics2D)g;
+		if (backgroundOn)
+			g2.drawImage(background.getImage(), 0, 0, this.getWidth(), this.getHeight(), 0, 0, background.getImage().getWidth(this),background.getImage().getHeight(this), this);
 		while(levelIterator.hasNext()){
 			levelIterator.next().draw(g2);
 		}
@@ -48,6 +54,7 @@ public class DisplayScreen extends JPanel implements Runnable{
 		g2.drawString(sPass, 20, 50);//lag
 		g2.drawString(String.valueOf(total/1000.0),20,70);//time
 		//System.out.println(this.getWidth());
+		
 	}
 
 
