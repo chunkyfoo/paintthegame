@@ -17,12 +17,12 @@ import javax.swing.JFrame;
 
 public class HighScore
 {
-
+	ScoreGUI shower=new ScoreGUI();
 	public static void main(String[]args)
 	{
 		//HighScore ch=new HighScore();
 		//ch.showScores(1);
-		new HighScore(2, "3/2/10", "Caitlin Tjandra");
+		//new HighScore(2, "3/2/10", "Caitlin Tjandra");
 	}//end main
 
 	public HighScore()
@@ -112,7 +112,6 @@ public class HighScore
 	public void showScores()
 	{
 		ArrayList<Score> scores=readScores();
-		ScoreGUI shower= new ScoreGUI();
 		shower.passIn(scores);
 		shower.setVisible(true);
 	}//end showScore
@@ -125,6 +124,7 @@ public class HighScore
 		{
 			super("High Scores");
 			setSize(400,480);
+			this.setDefaultCloseOperation(HIDE_ON_CLOSE);
 		}//end scoreGUI
 		
 		public void passIn(ArrayList<Score> scores1)
