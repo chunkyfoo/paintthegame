@@ -9,6 +9,7 @@ import java.awt.event.MouseWheelListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.EtchedBorder;
@@ -24,14 +25,16 @@ import javax.swing.border.TitledBorder;
 public class LevelEditor extends Applet
 {
 	JPanel p = new JPanel();//drawing panel
+	JScrollPane scrollpane = new JScrollPane(p);
 	int scaleFactor=3;
 	
 	public void init() //initializes components of the applet
 	{
 		setSize(600,600);
 		mouseScroll scroll= new mouseScroll();
-		p.setPreferredSize(new Dimension(400,400));
-		add(p);
+		p.setPreferredSize(new Dimension(800,800));
+		scrollpane.setPreferredSize(new Dimension(500,500));
+		add(scrollpane);
 		p.addMouseWheelListener(scroll);
 		repaint();
 	
