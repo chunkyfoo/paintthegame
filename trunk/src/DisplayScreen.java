@@ -7,15 +7,18 @@
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.File;
 import java.io.OutputStream;
+import java.util.BitSet;
 import java.util.Iterator;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 
-public class DisplayScreen extends JPanel implements Runnable{
+public class DisplayScreen extends JPanel implements Runnable , KeyListener{
 
 	Level level;
 	long start;
@@ -29,6 +32,7 @@ public class DisplayScreen extends JPanel implements Runnable{
 	public boolean pause = false;
 	boolean backgroundOn = false;
 	ImageIcon background = null;
+	BitSet keys = new BitSet(65535);
 	
 	public DisplayScreen(){
 		level = new Level(new File("testLevel"));
@@ -93,7 +97,25 @@ public class DisplayScreen extends JPanel implements Runnable{
 	private void increment() {
 		Iterator<LevelObject> levelIterator = level.levelObjects.iterator();
 		while(levelIterator.hasNext()){
-			levelIterator.next().increment(total, pass);
+			LevelObject obj = levelIterator.next();
+			obj.increment(total, pass);
+			if(obj instanceof Controlable){
+				((Controlable) obj).control(keys);
+			}
 		}
 	}//end iterate
+
+	public void keyPressed(KeyEvent arg0) {
+		keys.set(arg0.getKeyCode());		
+	}
+
+	public void keyReleased(KeyEvent arg0) {
+		keys.set(arg0.getKeyCode(), false);
+		
+	}
+
+	public void keyTyped(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
 }//end class
