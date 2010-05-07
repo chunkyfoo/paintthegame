@@ -8,6 +8,7 @@ import java.awt.image.ImageObserver;
  */
 
 public abstract class LevelObject implements Drawable, incrementable{
+	Dimension dim;
 	int x,y,oldy,oldx;
 	Image img;
 	static ImageObserver imgObserve;
@@ -15,28 +16,25 @@ public abstract class LevelObject implements Drawable, incrementable{
 	public LevelObject(Image img){
 		x = -1000;
 		y = -1000;
-		oldy=-1001;
-		oldx=-1001;
 		this.img = img;
+		dim = new Dimension();
 	}//end default constructor
 
-	public LevelObject(int x, int y, Image img){
+	public LevelObject(int x, int y, Image img, Dimension dim){
 		this.x = x;
 		this.y = y;
-		oldy=y+1;
-		oldx=x+1;
 		this.img = img;
+		this.dim = dim;
 	}//end default constructor
 
 	public void draw(Graphics2D g2){
-		if(!(oldx==x) || !(oldy==y))
 			g2.drawImage(img, x, y, null);
-		else{
-			oldy=y;
-			oldx=x;
-		}//end else
 	}//end draw
 
+	public Dimension getDimensions(){
+		return dim;
+	}//end getDimensions
+	
 	abstract public void increment(long total, long pass);
 
 }//end class
