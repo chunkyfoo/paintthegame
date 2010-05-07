@@ -15,9 +15,10 @@ public class FireBall extends LevelObject implements Drawable,incrementable{
 	int size;
 	Color color;
 	double radians;
+	double speed;
 	
 	
-	public FireBall(int x, int y, int radius, int size, Color color) {
+	public FireBall(int x, int y, int radius, int size, Color color,double speed) {
 		super(null);
 		this.x = x;
 		this.y = y;
@@ -25,6 +26,7 @@ public class FireBall extends LevelObject implements Drawable,incrementable{
 		this.size = size;
 		this.color = color;
 		this.radians = 0.0;
+		this.speed = speed;
 	}
 
 	public void draw(Graphics2D g2) {
@@ -33,7 +35,7 @@ public class FireBall extends LevelObject implements Drawable,incrementable{
 	}
 
 	public void increment(long total, long pass) {
-		radians += Math.PI * (double)pass / 1000.0;
+		radians += (speed * 2.0 * Math.PI * (double)pass / 1000.0);
 		while(radians >= 2 *Math.PI){
 			radians -= 2 * Math.PI;
 		}		
