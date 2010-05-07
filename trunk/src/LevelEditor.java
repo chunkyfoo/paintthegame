@@ -1,5 +1,7 @@
 import java.applet.Applet;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
@@ -30,6 +32,9 @@ public class LevelEditor extends Applet
 	JScrollPane scrollpane = new JScrollPane(p);
 	int scaleFactor=3;
 	Image grid;
+	JButton zoomIn = new JButton("Zoom In");
+	JButton zoomOut = new JButton("Zoom Out");
+	JButton reset = new JButton("Reset");
 	
 	public void init() //initializes components of the applet
 	{
@@ -38,9 +43,33 @@ public class LevelEditor extends Applet
 		p.setPreferredSize(new Dimension(500,500));
 		scrollpane.setPreferredSize(new Dimension(500,500));
 		grid = Toolkit.getDefaultToolkit().getImage("basic grid.png");
+		zoomIn.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e)
+			{
+				scaleFactor=scaleFactor+15;
+				repaint();
+			}
+		});
+		reset.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e)
+			{
+				scaleFactor=3;
+				repaint();
+			}
+		});
 		
-		add(scrollpane);
+		zoomOut.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e)
+			{
+				scaleFactor=scaleFactor-15;
+				repaint();
+			}
+		});
+		add(zoomIn);
+		add(zoomOut);
+		add(reset);
 		p.addMouseWheelListener(scroll);
+		
 		repaint();
 	
 	}
@@ -65,18 +94,21 @@ public class LevelEditor extends Applet
 			g.drawLine(0, x, p.getWidth(),x);
 			**/
 
-		Image newimg=grid.getScaledInstance(scaleFactor, scaleFactor,Image.SCALE_SMOOTH);
+		//Image newimg=grid.getScaledInstance(scaleFactor, scaleFactor,Image.SCALE_SMOOTH);
 		if((600+scaleFactor*4)>500)
 		{
 		g.drawImage(grid,0,0,600+scaleFactor*4,600+scaleFactor*4 , this);
+		p.setSize(900, 900);
 		//resize p
 
 		}
 		else 
 		{
-			g.drawImage(grid,0,0,600,600, this);
+			g.drawImage(grid,0,0,500,500, this);
 			scaleFactor=-25;
 		}
+		
+		
 	}
 	public class mouseScroll implements MouseWheelListener
 	{
@@ -104,7 +136,8 @@ public class LevelEditor extends Applet
 		Graphics pg=p.getGraphics();
 		pg.clearRect(0,0, p.getWidth(), p.getHeight());
 		drawGrid(pg);
-		
+		p.updateUI();
+		//p.setSize(new Dimension(500+scaleFactor*4, 500+scaleFactor*4));
 		repaint();
 		
 	}
