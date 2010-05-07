@@ -57,10 +57,7 @@ public class DisplayScreen extends JPanel implements Runnable , KeyListener{
 		g2.drawString("Average FPS = " + String.valueOf(frames/(total/1000.0)), 20, 20);
 		g2.drawString(sPass, 20, 50);//lag
 		g2.drawString(String.valueOf(total/1000.0),20,70);//time
-		//System.out.println(this.getWidth());
-		
 	}
-
 
 	public void run() {
 		this.setVisible(true);
@@ -91,7 +88,6 @@ public class DisplayScreen extends JPanel implements Runnable , KeyListener{
 				passt = getTime();
 			}
 		}//end while
-
 	}//end method run
 
 	private void increment() {
@@ -106,7 +102,7 @@ public class DisplayScreen extends JPanel implements Runnable , KeyListener{
 	}//end iterate
 
 	public void keyPressed(KeyEvent arg0) {
-		keys.set(arg0.getKeyCode());		
+		keys.set(arg0.getKeyCode());	
 	}
 
 	public void keyReleased(KeyEvent arg0) {
@@ -115,7 +111,5 @@ public class DisplayScreen extends JPanel implements Runnable , KeyListener{
 	}
 
 	public void keyTyped(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
 	}
 }//end class
