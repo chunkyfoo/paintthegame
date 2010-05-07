@@ -6,11 +6,11 @@ public class Wall extends LevelObject{
 	
 	public Wall(){
 		//super(new ImageIcon(getClass().getResource("i-beam_Painting.jpg")).getImage());
-		super(new ImageIcon("i-beam_Painting.jpg").getImage());
+		super(new ImageIcon("wall.png").getImage());
 	}//end default constructor
 	
 	public Wall(int x, int y){
-		super(x, y, new ImageIcon("i-beam_Painting.jpg").getImage());
+		super(x, y, new ImageIcon("wall.png").getImage());
 	}//end default constructor
 	
 	@Override
