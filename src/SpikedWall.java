@@ -5,11 +5,11 @@ import javax.swing.ImageIcon;
 public class SpikedWall extends LevelObject{
 	
 	public SpikedWall(){
-		super(new ImageIcon("spikes_draft.jpg").getImage());
+		super(new ImageIcon("spike.png").getImage());
 	}//end default constructor
 	
 	public SpikedWall(int x, int y){
-		super(x, y, new ImageIcon("spikes_draft.jpg").getImage());
+		super(x, y, new ImageIcon("spike.png").getImage());
 	}//end default constructor
 
 	@Override
