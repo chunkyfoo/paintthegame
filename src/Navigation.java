@@ -12,6 +12,11 @@ import java.awt.GridLayout;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.File;
@@ -25,7 +30,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JToggleButton;
 
-public class Navigation extends JApplet{
+public class Navigation extends JApplet  implements KeyListener , MouseListener, MouseMotionListener{
 	boolean isStandAlone = false;//set to true when the program is running in application mode and not applet mode
 	DisplayScreen displayScreen;
 	boolean pause = false;
@@ -45,6 +50,9 @@ public class Navigation extends JApplet{
 
 	public void init() {
 		this.displayScreen = new DisplayScreen();
+		this.addMouseListener(this);
+		this.addMouseMotionListener(this);
+		displayScreen.addKeyListener(this);
 		this.setLayout(new BorderLayout());
 		this.add(displayScreen,BorderLayout.CENTER);
 		jbtScores.addActionListener(new ActionListener(){
@@ -103,7 +111,6 @@ public class Navigation extends JApplet{
 
 	public void stop() {
 		super.stop();
-
 	}
 
 	public void howToPlay(){
@@ -131,6 +138,7 @@ public class Navigation extends JApplet{
 
 	public void unPause(){
 		pause = false;
+		displayScreen.requestFocus();
 		displayScreen.pause = false;
 	}
 
@@ -152,7 +160,8 @@ public class Navigation extends JApplet{
 			//panel.add(lbl);
 			//frame.add(panel);
 			frame.add(applet, BorderLayout.CENTER);
-			frame.setSize(900, 900);
+			applet.addKeyListener(applet);
+			frame.setSize(1000, 700);
 			frame.setVisible(true);
 		}
 		catch(IllegalArgumentException e){
@@ -160,8 +169,42 @@ public class Navigation extends JApplet{
 		}
 		applet.init();
 		applet.start();
-
 	}
 
-}
+	public void keyPressed(KeyEvent arg0) {
+		displayScreen.keyPressed(arg0);
+		displayScreen.requestFocus();
+	}
 
+	public void keyReleased(KeyEvent arg0) {
+		displayScreen.keyReleased(arg0);
+		displayScreen.requestFocus();
+	}
+
+	public void keyTyped(KeyEvent arg0) {
+		displayScreen.keyTyped(arg0);	
+		displayScreen.requestFocus();
+	}
+	
+	public void mouseClicked(MouseEvent arg0) {
+		displayScreen.requestFocus();
+	}
+	public void mouseEntered(MouseEvent arg0) {
+		displayScreen.requestFocus();
+	}
+	public void mouseExited(MouseEvent arg0) {
+		displayScreen.requestFocus();
+	}
+	public void mousePressed(MouseEvent arg0) {
+		displayScreen.requestFocus();
+	}
+	public void mouseReleased(MouseEvent arg0) {
+		displayScreen.requestFocus();
+	}
+	public void mouseDragged(MouseEvent arg0) {
+		displayScreen.requestFocus();
+	}
+	public void mouseMoved(MouseEvent arg0) {
+		displayScreen.requestFocus();
+	}
+}
