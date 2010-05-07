@@ -9,11 +9,11 @@ import javax.swing.ImageIcon;
 public class Coin extends LevelObject{
 
 	public Coin(){
-		super(new ImageIcon("coin.jpg").getImage());
+		super(new ImageIcon("coin.png").getImage());
 	}//end default constructor
 	
 	public Coin(int x, int y){
-		super(x, y, new ImageIcon("coin.jpg").getImage());
+		super(x, y, new ImageIcon("coin.png").getImage());
 	}//end constructor
 
 	@Override
