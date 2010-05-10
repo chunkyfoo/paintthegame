@@ -1,13 +1,17 @@
 
 	import java.applet.Applet;
 	import java.awt.*;
+	import java.awt.image.BufferedImage;
 	import java.awt.event.MouseAdapter;
 	import java.awt.event.MouseEvent;
 	import java.awt.event.MouseMotionAdapter;
+import java.io.File;
+import java.io.IOException;
 	import java.net.MalformedURLException;
 	import java.net.URL;
 	import javax.swing.JButton;
 	import javax.swing.JFrame;
+	import javax.imageio.ImageIO;
 	import javax.swing.JPanel;
 	import javax.swing.border.BevelBorder;
 	import javax.swing.border.EmptyBorder;
@@ -23,19 +27,23 @@ import java.applet.AudioClip;
 		/**
 		 * @param args
 		 */
-		Image instructions;
+		
 		Cursor curr=new Cursor(Cursor.HAND_CURSOR);
 		JPanel main = new JPanel();
 		JPanel p = new JPanel();//drawing panel
 		JPanel buttonPanel = new JPanel();//drawing panel
 		JButton button=new JButton();
 		AudioClip clip=null;
+		BufferedImage img;
 
 
-		public  HowToPlayV2() //initializes components of the applet
+		public  HowToPlayV2() throws IOException//initializes components of the applet 
 		{
+			
 
-			 instructions = Toolkit.getDefaultToolkit().getImage("Instructions.png");
+			img=ImageIO.read(getClass().getResource("Instructions.png"));
+
+			
 			Container content = this.getContentPane();
 
 			setTitle("How To Play");
@@ -46,20 +54,16 @@ import java.applet.AudioClip;
 			MouseClick click = new MouseClick();
 			p.addMouseListener(click);
 
-			//repaint();
 			setSize(600, 502);
-			clip=getAudioClip("doh.wav");
+			clip=Applet.newAudioClip(getClass().getResource("doh.wav"));
 	   	
 			p.setPreferredSize(new Dimension(200,50));
 
 			setLayout(new BorderLayout());
 			add(main);
 
-			
-
 			p.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED));
-			//content.repaint();
-
+			
 
 			 this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 
@@ -81,7 +85,7 @@ import java.applet.AudioClip;
 
 					//System.out.println("OUTTTTTT!");
 					setVisible(false);//minimize
-					//repaint();				
+							
 
 			}
 
@@ -92,11 +96,10 @@ import java.applet.AudioClip;
 				
 					p.setCursor(curr);
 					//System.out.println("ENTERD AREA!");
-					//repaint();
+
 					clip.play();
 
 
-				//repaint();
 
 			}//end mouseEntered method
 			public void mouseExit(MouseEvent e)
@@ -110,10 +113,10 @@ import java.applet.AudioClip;
 		public void update(Graphics g) //method that actually draws
 		{
 
-			//repaint();
+			
 
 			Graphics m = main.getGraphics();
-			m.drawImage(instructions, 0,65, 600,402,main);//draws the how to play image
+			m.drawImage(img, 0,65, 600,402,main);//draws the how to play image
 
 			Graphics pg=p.getGraphics();
 			pg.setColor(Color.WHITE);
@@ -121,22 +124,9 @@ import java.applet.AudioClip;
 			pg.setColor(Color.RED);
 			pg.drawString("CLOSE THIS", 50, 20);
 			
-			repaint();					
-			
+		
 		}//end update method
 
-		public static AudioClip getAudioClip(String fileName) {
-			URL address = null;
-			try {
-				address = new URL("file:" + "/Volumes/STUHOME/10779309/My Documents/" + fileName);
-				//the above for testing only! grey this out and use the code below:
-				//address = new URL("file:" + System.getProperty("user.dir") + "\\" + fileName);//change this to your own directory
-			} catch (MalformedURLException mfurle) {
-				System.err.println("Couldn't make URL: " + mfurle);
-				//System.out.println("HAHALOSER YOU FAIL");
-			}
-			
-			return Applet.newAudioClip(address);
-		}
+		
 
 }
