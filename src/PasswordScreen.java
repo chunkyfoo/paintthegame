@@ -30,7 +30,7 @@ public class PasswordScreen extends JFrame implements ActionListener
 	{
 
 		Container content = this.getContentPane();
-		clip=getAudioClip("doh.wav");
+		clip=Applet.newAudioClip(getClass().getResource("doh.wav"));
 		setTitle("Enter Password");
 		this.pack();
 		setSize(600, 502);
@@ -88,7 +88,7 @@ public class PasswordScreen extends JFrame implements ActionListener
 			pass.setVisible(false);
 			enter.setVisible(false);
 		}
-		repaint();
+		
 		
 	}
 
@@ -109,7 +109,7 @@ public class PasswordScreen extends JFrame implements ActionListener
 
 				//System.out.println("OUTTTTTT!");//TESTING FLAG
 				setVisible(false);//minimize
-				repaint();				
+							
 
 		}
 
@@ -120,12 +120,10 @@ public class PasswordScreen extends JFrame implements ActionListener
 			
 				p.setCursor(curr);
 				//System.out.println("ENTERD AREA!");
-				repaint();
+			
 				clip.play();
 
-			repaint();
-
-			repaint();
+	
 
 		}//end mouseEntered method
 		public void mouseExit(MouseEvent e)
@@ -144,7 +142,7 @@ public class PasswordScreen extends JFrame implements ActionListener
 		BufferedReader in =
 			new BufferedReader(new InputStreamReader(System.in));
 
-			FileReader textfile = new FileReader("passwords.txt");// create new object
+			FileReader textfile = new FileReader("src\\Passwords\\passwords.txt");// create new object
 
 			// FileReader
 			Scanner src =
@@ -212,11 +210,6 @@ public class PasswordScreen extends JFrame implements ActionListener
 			m.drawString("Now Loading Level... "+levelForPass, 160, 180);
 			p.setVisible(false);
 		}
-
-
-	repaint();
-		
-				
 		
 	}//end update method
 	public void closeThisButton()//initializes the button that says "Go Back"
@@ -227,16 +220,5 @@ public class PasswordScreen extends JFrame implements ActionListener
 		pg.setColor(Color.RED);
 		pg.drawString("Go back to main menu", 50, 20);
 	}
-	public static AudioClip getAudioClip(String fileName) {
-		URL address = null;
-		try {
-			address = new URL("file:" + "/Volumes/STUHOME/10779309/My Documents/" + fileName);
-			//the above for testing only! grey this out and use the code below:
-			//address = new URL("file:" + System.getProperty("user.dir") + "\\" + fileName);//change this to your own directory
-		} catch (MalformedURLException mfurle) {
-			System.err.println("Couldn't make URL: " + mfurle);
-		}
-		
-		return Applet.newAudioClip(address);
-	}
+
 }
