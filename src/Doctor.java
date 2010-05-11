@@ -8,7 +8,7 @@ public class Doctor extends LevelObject{
 	double interval;
 	boolean horizontal;
 	public Doctor(){
-		super(new ImageIcon("Doctor.png").getImage());
+		this.img = new ImageIcon(getClass().getResource("images/" + "Doctor.png")).getImage();
 		radians =  0;
 		distance = 0;
 		interval = 0;
@@ -16,7 +16,8 @@ public class Doctor extends LevelObject{
 	}//end default constructor
 
 	public Doctor(int x, int y, double distance, double interval, boolean horizontal){
-		super(x, y, new ImageIcon("Doctor.png").getImage(), new DimensionX());
+		super(x, y, new DimensionX());
+		this.img = new ImageIcon(getClass().getResource("images/" + "Doctor.png")).getImage();
 		radians = 0;
 		this.distance = distance;
 		this.interval = interval;
