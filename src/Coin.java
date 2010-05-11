@@ -13,7 +13,7 @@ public class Coin extends LevelObject{
 	}//end default constructor
 	
 	public Coin(int x, int y){
-		super(x, y, new ImageIcon("coin.png").getImage());
+		super(x, y, new ImageIcon("coin.png").getImage(), new DimensionX());
 	}//end constructor
 
 	@Override
