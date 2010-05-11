@@ -13,14 +13,13 @@ public abstract class LevelObject implements Drawable, incrementable{
 	Image img;
 	static ImageObserver imgObserve;
 
-	public LevelObject(Image img){
+	public LevelObject(){
 		x = -1000;
 		y = -1000;
-		this.img = img;
 		dim = new DimensionX();
 	}//end default constructor
 
-	public LevelObject(int x, int y, Image img, DimensionX dim){
+	public LevelObject(int x, int y, DimensionX dim){
 		this.x = x;
 		this.y = y;
 		this.img = img;
