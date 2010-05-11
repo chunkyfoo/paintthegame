@@ -10,7 +10,7 @@ public class Wall extends LevelObject{
 	}//end default constructor
 	
 	public Wall(int x, int y){
-		super(x, y, new ImageIcon("wall.png").getImage());
+		super(x, y, new ImageIcon("wall.png").getImage(), new DimensionX());
 	}//end default constructor
 	
 	@Override
