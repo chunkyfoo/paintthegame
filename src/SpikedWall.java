@@ -9,7 +9,7 @@ public class SpikedWall extends LevelObject{
 	}//end default constructor
 	
 	public SpikedWall(int x, int y){
-		super(x, y, new ImageIcon("spike.png").getImage());
+		super(x, y, new ImageIcon("spike.png").getImage(), new DimensionX());
 	}//end default constructor
 
 	@Override
