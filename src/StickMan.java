@@ -8,11 +8,12 @@ import javax.swing.ImageIcon;
 
 public class StickMan extends LevelObject{
 	public StickMan(){
-		super(new ImageIcon("sprite.png").getImage());
+		this.img = new ImageIcon(getClass().getResource("images/" + "sprite.png")).getImage();
 	}//end default constructor
 	
 	public StickMan(int x, int y){
-		super(x, y, new ImageIcon("Sprite.jpg").getImage(), new DimensionX());
+		super(x, y, new DimensionX());
+		this.img = new ImageIcon(getClass().getResource("images/" + "sprite.png")).getImage();
 	}//end default constructor
 
 	@Override
