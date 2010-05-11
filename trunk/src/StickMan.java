@@ -12,7 +12,7 @@ public class StickMan extends LevelObject{
 	}//end default constructor
 	
 	public StickMan(int x, int y){
-		super(x, y, new ImageIcon("sprite.png").getImage());
+		super(x, y, new ImageIcon("Sprite.jpg").getImage(), new DimensionX());
 	}//end default constructor
 
 	@Override
