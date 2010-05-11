@@ -8,7 +8,7 @@ public class Door extends LevelObject{
 	}//end default constructor
 	
 	public Door(int x, int y){
-		super(x, y, new ImageIcon("door.png").getImage());
+		super(x, y, new ImageIcon("door.png").getImage(), new DimensionX());
 	}//end constructor
 
 	@Override
