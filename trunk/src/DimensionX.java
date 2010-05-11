@@ -1,5 +1,5 @@
-
 public class DimensionX {
+
 	int x, y, length, width;
 	
 	public DimensionX(){
