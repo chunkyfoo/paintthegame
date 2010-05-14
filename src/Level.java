@@ -20,6 +20,14 @@ public class Level {
 		int levelNumber = 0;//fake value
 		paths = new ArrayList<Path>();//fake value
 		levelObjects = new HashSet<LevelObject>();//fake value
+		
+		levelObjects.add(new StickMan(100, 300));
+		levelObjects.add(new Doctor(150, 200, 200, 3000, false));
+		levelObjects.add(new SpikedWall(200, 100));
+		levelObjects.add(new Doctor(300, 100, 200, 3000, false));
+		levelObjects.add(new Door(100, 300));
+		
+		/*
 		levelObjects.add(new FireBall(300, 300, 300, 50 , Color.RED,.25));
 		//*
 		levelObjects.add(new FireBall(300, 300, 250, 50 , Color.GREEN,.25));
@@ -32,6 +40,7 @@ public class Level {
 		
 		///*
 		//levelObjects = new HashSet<LevelObject>();//fake value
+		/*
 		levelObjects.add(new FireBall(600, 300, 300, 50 , Color.RED,.25));
 		levelObjects.add(new FireBall(600, 300, 250, 50 , Color.GREEN,.25));
 		levelObjects.add(new FireBall(550, 300, 200, 50 , Color.BLUE,.25));
@@ -41,7 +50,6 @@ public class Level {
 		levelObjects.add(new FireBall(350, 300, 0, 50 , Color.BLACK,.25));
 		 //*/
 		
-		levelObjects.add(new PaintMan(200, 200));
 
 	}
 	
