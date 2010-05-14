@@ -20,6 +20,7 @@ import java.awt.event.MouseMotionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.File;
+import java.io.IOException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JApplet;
@@ -30,7 +31,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JToggleButton;
 
-public class Navigation extends JApplet  implements KeyListener , MouseListener, MouseMotionListener{
+public class Navigation extends JApplet  implements KeyListener , MouseListener, MouseMotionListener
+{
 	boolean isStandAlone = false;//set to true when the program is running in application mode and not applet mode
 	DisplayScreen displayScreen;
 	boolean pause = false;
@@ -40,7 +42,7 @@ public class Navigation extends JApplet  implements KeyListener , MouseListener,
 	JButton jbtMainMenu = new JButton("Quit to Main Menu");
 	JButton jbtMedia = new JButton("Music and Background");
 	Thread game;
-	JFrame window = new HowToPlayV2();
+	JFrame window;
 	OptionMenu optionMenu = new OptionMenu(this);
 	boolean music = false;
 	boolean background = false;
@@ -49,6 +51,12 @@ public class Navigation extends JApplet  implements KeyListener , MouseListener,
 	}
 
 	public void init() {
+		try {
+			initHowToPlay();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		this.displayScreen = new DisplayScreen();
 		this.addMouseListener(this);
 		this.addMouseMotionListener(this);
@@ -97,7 +105,10 @@ public class Navigation extends JApplet  implements KeyListener , MouseListener,
 		this.add(southPanel,BorderLayout.SOUTH);
 		this.setVisible(true);
 	}
-
+	public void initHowToPlay() throws IOException
+	{
+		window=new HowToPlayV2();
+	}
 	public void start() {
 		super.start();
 		game = new Thread(displayScreen);
